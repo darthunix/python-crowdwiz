@@ -13,22 +13,22 @@ except LookupError:
     ascii = codecs.lookup("ascii")
     codecs.register(lambda name, enc=ascii: {True: enc}.get(name == "mbcs"))
 
-VERSION = "0.3.2"
-URL = "https://github.com/bitshares/python-bitshares"
+VERSION = "0.1.0"
+URL = "https://github.com/donbc/python-crowdwiz"
 
 setup(
-    name="bitshares",
+    name="crowdwiz",
     version=VERSION,
-    description="Python library for bitshares",
+    description="Python library for crowdwiz",
     long_description=open("README.md").read(),
     download_url="{}/tarball/{}".format(URL, VERSION),
-    author="Fabian Schuh",
-    author_email="Fabian@chainsquad.com",
-    maintainer="Fabian Schuh",
-    maintainer_email="Fabian@chainsquad.com",
+    author="Donbc Crowdwiz",
+    author_email="donbc@protonmail.com",
+    maintainer="Donbc Crowdwiz",
+    maintainer_email="donbc@protonmail.com",
     url=URL,
-    keywords=["bitshares", "library", "api", "rpc"],
-    packages=["bitshares", "bitsharesapi", "bitsharesbase"],
+    keywords=["crowdwiz", "library", "api", "rpc"],
+    packages=["crowdwiz", "crowdwizapi", "crowdwizbase"],
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",

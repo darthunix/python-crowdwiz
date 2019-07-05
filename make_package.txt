@@ -1,0 +1,10 @@
+1) Fork original repository (python-crowdwiz)
+2) Rename original repository (python-crowdwiz)
+3) Clone new repository
+4) Rename all files and folders (crowdwiz -> crowdwiz)
+5) Rename all functions and variables and other
+6) Modify setup.py
+7) Modify chains.py and storage.py
+8) python3 setup.py bdist_wheel
+9) python3 -m pip3 install dist/crowdwiz-0.1.0-py3-none-any.whl
+10) 
