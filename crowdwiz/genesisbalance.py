@@ -2,8 +2,8 @@
 from .account import Account
 from .instance import BlockchainInstance
 from graphenecommon.genesisbalance import (
-    GenesisBalance as GrapheneGenesisBalance,
-    GenesisBalances as GrapheneGenesisBalances,
+	GenesisBalance as GrapheneGenesisBalance,
+	GenesisBalances as GrapheneGenesisBalances,
 )
 
 from crowdwizbase.account import Address, PublicKey
@@ -12,30 +12,30 @@ from crowdwizbase import operations
 
 @BlockchainInstance.inject
 class GenesisBalance(GrapheneGenesisBalance):
-    """ Read data about a Genesis Balances from the chain
+	""" Read data about a Genesis Balances from the chain
 
-        :param str identifier: identifier of the balance
-        :param crowdwiz blockchain_instance: crowdwiz() instance to use when
-            accesing a RPC
+		:param str identifier: identifier of the balance
+		:param crowdwiz blockchain_instance: crowdwiz() instance to use when
+			accesing a RPC
 
-    """
+	"""
 
-    type_id = 15
+	type_id = 15
 
-    def define_classes(self):
-        self.account_class = Account
-        self.operations = operations
-        self.address_class = Address
-        self.publickey_class = PublicKey
+	def define_classes(self):
+		self.account_class = Account
+		self.operations = operations
+		self.address_class = Address
+		self.publickey_class = PublicKey
 
 
 @BlockchainInstance.inject
 class GenesisBalances(GrapheneGenesisBalances):
-    """ List genesis balances that can be claimed from the
-        keys in the wallet
-    """
+	""" List genesis balances that can be claimed from the
+		keys in the wallet
+	"""
 
-    def define_classes(self):
-        self.genesisbalance_class = GenesisBalance
-        self.publickey_class = PublicKey
-        self.address_class = Address
+	def define_classes(self):
+		self.genesisbalance_class = GenesisBalance
+		self.publickey_class = PublicKey
+		self.address_class = Address

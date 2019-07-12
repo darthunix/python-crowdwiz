@@ -17,29 +17,29 @@ whitelist["white_and_black_listed"] = 0x1 | 0x2
 
 
 def toint(permissions):
-    permissions_int = 0
-    for p in permissions:
-        if permissions[p]:
-            permissions_int |= asset_permissions[p]
-    return permissions_int
+	permissions_int = 0
+	for p in permissions:
+		if permissions[p]:
+			permissions_int |= asset_permissions[p]
+	return permissions_int
 
 
 def todict(number):
-    r = {}
-    for k, v in asset_permissions.items():
-        r[k] = bool(number & v)
-    return r
+	r = {}
+	for k, v in asset_permissions.items():
+		r[k] = bool(number & v)
+	return r
 
 
 def force_flag(perms, flags):
-    for p in flags:
-        if flags[p]:
-            perms |= asset_permissions[p]
-    return perms
+	for p in flags:
+		if flags[p]:
+			perms |= asset_permissions[p]
+	return perms
 
 
 def test_permissions(perms, flags):
-    for p in flags:
-        if not asset_permissions[p] & perms:
-            raise Exception("Permissions prevent you from changing %s!" % p)
-    return True
+	for p in flags:
+		if not asset_permissions[p] & perms:
+			raise Exception("Permissions prevent you from changing %s!" % p)
+	return True

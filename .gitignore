@@ -1,4 +1,6 @@
 .idea/
+.vscode
+tests
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -63,3 +65,4 @@ target/
 *.swp
 .ropeproject/
 */.ropeproject/
+

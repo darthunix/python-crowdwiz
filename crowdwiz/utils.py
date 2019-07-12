@@ -4,10 +4,10 @@ from .instance import BlockchainInstance
 
 # Load methods from graphene and provide them to crowdwiz
 from graphenecommon.utils import (
-    formatTime,
-    timeFormat,
-    formatTimeString,
-    formatTimeFromNow,
-    parse_time,
-    assets_from_string,
+	formatTime,
+	timeFormat,
+	formatTimeString,
+	formatTimeFromNow,
+	parse_time,
+	assets_from_string,
 )

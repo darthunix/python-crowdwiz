@@ -14,11 +14,11 @@ repos:
   - id: end-of-file-fixer
   - id: fix-encoding-pragma
   - id: no-commit-to-branch
-    branch: master
+	branch: master
   - id: flake8
 
 - repo: https://github.com/ambv/black
   rev: 18.9b0
   hooks:
   - id: black
-    language_version: python3
+	language_version: python3

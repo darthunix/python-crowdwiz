@@ -6,15 +6,15 @@ from graphenecommon.committee import Committee as GrapheneCommittee
 
 @BlockchainInstance.inject
 class Committee(GrapheneCommittee):
-    """ Read data about a Committee Member in the chain
+	""" Read data about a Committee Member in the chain
 
-        :param str member: Name of the Committee Member
-        :param crowdwiz blockchain_instance: CrowdWiz() instance to use when
-            accesing a RPC
-        :param bool lazy: Use lazy loading
+		:param str member: Name of the Committee Member
+		:param crowdwiz blockchain_instance: CrowdWiz() instance to use when
+			accesing a RPC
+		:param bool lazy: Use lazy loading
 
-    """
+	"""
 
-    def define_classes(self):
-        self.type_id = 5
-        self.account_class = Account
+	def define_classes(self):
+		self.type_id = 5
+		self.account_class = Account
