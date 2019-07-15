@@ -50,17 +50,18 @@ ops = [
 	"execute_bid",
 	"asset_claim_pool",
 	"asset_update_issuer",
-	# "htlc_create",
-	# "htlc_redeem",
-	# "htlc_redeemed",
-	# "htlc_extend",
-	# "htlc_refund",
+	"account_status_upgrade",
 	"flipcoin_bet",
 	"flipcoin_call",
+	"flipcoin_win",
+	"flipcoin_cancel",
+	"flipcoin_loose",
 	"lottery_goods_create_lot",
 	"lottery_goods_buy_ticket",
 	"lottery_goods_send_contacts",
-	"lottery_goods_confirm_delivery"
+	"lottery_goods_confirm_delivery",
+	"lottery_goods_win",
+	"lottery_goods_loose"
 ]
 operations = {o: ops.index(o) for o in ops}
 
