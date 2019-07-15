@@ -1089,5 +1089,35 @@ class Lottery_goods_confirm_delivery(GrapheneObject):
 			)
 
 
+class Send_message(GrapheneObject):
+	def __init__(self, *args, **kwargs):
+		# Allow for overwrite of prefix
+		if isArgsThisClass(self, args):
+			self.data = args[0].data
+		else:
+			if len(args) == 1 and len(kwargs) == 0:
+				kwargs = args[0]
+			prefix = kwargs.get("prefix", default_prefix)
+			if "memo" in kwargs and kwargs["memo"]:
+				if isinstance(kwargs["memo"], dict):
+					kwargs["memo"]["prefix"] = prefix
+					memo = Optional(Memo(**kwargs["memo"]))
+				else:
+					memo = Optional(Memo(kwargs["memo"]))
+			else:
+				memo = Optional(None)
+			super().__init__(
+				OrderedDict(
+					[
+						("fee", Asset(kwargs["fee"])),
+						("from", ObjectId(kwargs["from"], "account")),
+						("to", ObjectId(kwargs["to"], "account")),
+						("memo", memo),
+						("extensions", Set([])),
+					]
+				)
+			)
+
+
 fill_classmaps()
 

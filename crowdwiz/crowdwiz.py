@@ -1496,3 +1496,28 @@ class CrowdWiz(AbstractGrapheneChain):
 			}
 		)
 		return self.finalizeOp(op, winner, "active", **kwargs)
+
+	def send_message(self, to, memo="", account=None, **kwargs):
+		from .memo import Memo
+
+		if not account:
+			if "default_account" in self.config:
+				account = self.config["default_account"]
+		if not account:
+			raise ValueError("You need to provide an account")
+
+		account = Account(account, blockchain_instance=self)
+		to = Account(to, blockchain_instance=self)
+
+		memoObj = Memo(from_account=account, to_account=to, blockchain_instance=self)
+
+		op = operations.Send_message(
+			**{
+				"fee": {"amount": 0, "asset_id": "1.3.0"},
+				"from": account["id"],
+				"to": to["id"],
+				"memo": memoObj.encrypt(memo),
+				"prefix": self.prefix,
+			}
+		)
+		return self.finalizeOp(op, account, "active", **kwargs)

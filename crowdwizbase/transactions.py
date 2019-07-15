@@ -20,6 +20,11 @@ from .operations import (
 	Proposal_update,
 	Transfer,
 	Flipcoin_bet,
-	Flipcoin_call
+	Flipcoin_call,
+	Lottery_goods_create_lot,
+	Lottery_goods_buy_ticket,
+	Lottery_goods_send_contacts,
+	Lottery_goods_confirm_delivery,
+	Send_message,
 )
 from .signedtransactions import Signed_Transaction

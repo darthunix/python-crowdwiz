@@ -61,7 +61,8 @@ ops = [
 	"lottery_goods_send_contacts",
 	"lottery_goods_confirm_delivery",
 	"lottery_goods_win",
-	"lottery_goods_loose"
+	"lottery_goods_loose",
+	"send_message"
 ]
 operations = {o: ops.index(o) for o in ops}
 
