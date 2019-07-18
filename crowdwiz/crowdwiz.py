@@ -1397,9 +1397,9 @@ class CrowdWiz(AbstractGrapheneChain):
 		op = operations.Flipcoin_call(
 			**{
 				"fee": {"amount": 0, "asset_id": "1.3.0"},
+				"flipcoin": flipcoin,
 				"caller": caller["id"],
 				"bet": {"amount": int(amount), "asset_id": amount.asset["id"]},
-				"flipcoin": flipcoin,
 				"prefix": self.prefix
 			}
 		)
@@ -1420,12 +1420,12 @@ class CrowdWiz(AbstractGrapheneChain):
 			**{
 				"fee": {"amount": 0, "asset_id": "1.3.0"},
 				"owner": owner["id"],
-				"ticket_price": {"amount": int(amount), "asset_id": amount.asset["id"]},
 				"total_participants": int(total_participants),
+				"ticket_price": {"amount": int(amount), "asset_id": amount.asset["id"]},
 				"latency_sec": int(latency_sec),
 				"img_url": img_url,
 				"description": description,
-				"prefix": self.prefix
+				"prefix": self.prefix,
 			}
 		)
 		return self.finalizeOp(op, owner, "active", **kwargs)
@@ -1443,9 +1443,9 @@ class CrowdWiz(AbstractGrapheneChain):
 		op = operations.Lottery_goods_buy_ticket(
 			**{
 				"fee": {"amount": 0, "asset_id": "1.3.0"},
+				"lot_id": lot_id,
 				"participant": participant["id"],
 				"ticket_price": {"amount": int(amount), "asset_id": amount.asset["id"]},
-				"lot_id": lot_id,
 				"prefix": self.prefix
 			}
 		)
@@ -1469,21 +1469,19 @@ class CrowdWiz(AbstractGrapheneChain):
 				"fee": {"amount": 0, "asset_id": "1.3.0"},
 				"lot_id": lot_id,
 				"winner": winner["id"],
-				"owner": owner["id"],
 				"winner_contacts": memoObj.encrypt(winner_contacts),
 				"prefix": self.prefix
 			}
 		)
 		return self.finalizeOp(op, winner, "active", **kwargs)
 
-	def lottery_goods_confirm_delivery(self, owner, lot_id, winner=None, **kwargs):
+	def lottery_goods_confirm_delivery(self, lot_id, winner=None, **kwargs):
 		if not winner:
 			if "default_account" in self.config:
 				winner = self.config["default_account"]
 		if not winner:
 			raise ValueError("You need to provide an account")
 
-		owner = Account(owner, blockchain_instance=self)
 		winner = Account(winner, blockchain_instance=self)
 
 		op = operations.Lottery_goods_confirm_delivery(
@@ -1491,33 +1489,32 @@ class CrowdWiz(AbstractGrapheneChain):
 				"fee": {"amount": 0, "asset_id": "1.3.0"},
 				"lot_id": lot_id,
 				"winner": winner["id"],
-				"owner": owner["id"],
 				"prefix": self.prefix
 			}
 		)
 		return self.finalizeOp(op, winner, "active", **kwargs)
 
-	def send_message(self, to, memo="", account=None, **kwargs):
-		from .memo import Memo
-
-		if not account:
-			if "default_account" in self.config:
-				account = self.config["default_account"]
-		if not account:
-			raise ValueError("You need to provide an account")
-
-		account = Account(account, blockchain_instance=self)
-		to = Account(to, blockchain_instance=self)
-
-		memoObj = Memo(from_account=account, to_account=to, blockchain_instance=self)
-
-		op = operations.Send_message(
-			**{
-				"fee": {"amount": 0, "asset_id": "1.3.0"},
-				"from": account["id"],
-				"to": to["id"],
-				"memo": memoObj.encrypt(memo),
-				"prefix": self.prefix,
-			}
-		)
-		return self.finalizeOp(op, account, "active", **kwargs)
+	# def send_message(self, to, memo="", account=None, **kwargs):
+	# 	from .memo import Memo
+	#
+	# 	if not account:
+	# 		if "default_account" in self.config:
+	# 			account = self.config["default_account"]
+	# 	if not account:
+	# 		raise ValueError("You need to provide an account")
+	#
+	# 	account = Account(account, blockchain_instance=self)
+	# 	to = Account(to, blockchain_instance=self)
+	#
+	# 	memoObj = Memo(from_account=account, to_account=to, blockchain_instance=self)
+	#
+	# 	op = operations.Send_message(
+	# 		**{
+	# 			"fee": {"amount": 0, "asset_id": "1.3.0"},
+	# 			"from": account["id"],
+	# 			"to": to["id"],
+	# 			"memo": memoObj.encrypt(memo),
+	# 			"prefix": self.prefix,
+	# 		}
+	# 	)
+	# 	return self.finalizeOp(op, account, "active", **kwargs)

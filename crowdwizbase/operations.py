@@ -971,9 +971,9 @@ class Flipcoin_bet(GrapheneObject):
 				OrderedDict(
 					[
 						("fee", Asset(kwargs["fee"])),
-						("bet", Asset(kwargs["bet"])),
 						("bettor", ObjectId(kwargs["bettor"], "account")),
-						("nonce", int(kwargs["nonce"]))
+						("bet", Asset(kwargs["bet"])),
+						("nonce", Uint8(kwargs["nonce"]))
 					]
 				)
 			)
@@ -990,9 +990,9 @@ class Flipcoin_call(GrapheneObject):
 				OrderedDict(
 					[
 						("fee", Asset(kwargs["fee"])),
-						("bet", Asset(kwargs["bet"])),
+						("flipcoin", ObjectId(kwargs["flipcoin"], "flipcoin")),
 						("caller", ObjectId(kwargs["caller"], "account")),
-						("flipcoin", kwargs["flipcoin"])
+						("bet", Asset(kwargs["bet"])),
 					]
 				)
 			)
@@ -1009,12 +1009,12 @@ class Lottery_goods_create_lot(GrapheneObject):
 				OrderedDict(
 					[
 						("fee", Asset(kwargs["fee"])),
+						("owner", ObjectId(kwargs["owner"], "account")),
+						("total_participants", Uint32(kwargs["total_participants"])),
 						("ticket_price", Asset(kwargs["ticket_price"])),
-						("total_participants", int(kwargs["total_participants"])),
-						("latency_sec", int(kwargs["latency_sec"])),
-						("img_url", kwargs["img_url"]),
-						("description", kwargs["description"]),
-						("owner", ObjectId(kwargs["owner"], "account"))
+						("latency_sec", Uint16(kwargs["latency_sec"])),
+						("img_url", String(kwargs["img_url"])),
+						("description", String(kwargs["description"]))
 					]
 				)
 			)
@@ -1031,9 +1031,9 @@ class Lottery_goods_buy_ticket(GrapheneObject):
 				OrderedDict(
 					[
 						("fee", Asset(kwargs["fee"])),
-						("ticket_price", Asset(kwargs["ticket_price"])),
+						("lot_id", ObjectId(kwargs["lot_id"], "lottery_goods")),
 						("participant", ObjectId(kwargs["participant"], "account")),
-						("lot_id", kwargs["lot_id"])
+						("ticket_price", Asset(kwargs["ticket_price"]))
 					]
 				)
 			)
@@ -1061,9 +1061,8 @@ class Lottery_goods_send_contacts(GrapheneObject):
 				OrderedDict(
 					[
 						("fee", Asset(kwargs["fee"])),
-						("owner", ObjectId(kwargs["owner"], "account")),
+						("lot_id", ObjectId(kwargs["lot_id"], "lottery_goods")),
 						("winner", ObjectId(kwargs["winner"], "account")),
-						("lot_id", kwargs["lot_id"]),
 						("winner_contacts", winner_contacts)
 					]
 				)
@@ -1081,43 +1080,40 @@ class Lottery_goods_confirm_delivery(GrapheneObject):
 				OrderedDict(
 					[
 						("fee", Asset(kwargs["fee"])),
-						("owner", ObjectId(kwargs["owner"], "account")),
+						("lot_id", ObjectId(kwargs["lot_id"], "lottery_goods")),
 						("winner", ObjectId(kwargs["winner"], "account")),
-						("lot_id", kwargs["lot_id"])
 					]
 				)
 			)
 
 
-class Send_message(GrapheneObject):
-	def __init__(self, *args, **kwargs):
-		# Allow for overwrite of prefix
-		if isArgsThisClass(self, args):
-			self.data = args[0].data
-		else:
-			if len(args) == 1 and len(kwargs) == 0:
-				kwargs = args[0]
-			prefix = kwargs.get("prefix", default_prefix)
-			if "memo" in kwargs and kwargs["memo"]:
-				if isinstance(kwargs["memo"], dict):
-					kwargs["memo"]["prefix"] = prefix
-					memo = Optional(Memo(**kwargs["memo"]))
-				else:
-					memo = Optional(Memo(kwargs["memo"]))
-			else:
-				memo = Optional(None)
-			super().__init__(
-				OrderedDict(
-					[
-						("fee", Asset(kwargs["fee"])),
-						("from", ObjectId(kwargs["from"], "account")),
-						("to", ObjectId(kwargs["to"], "account")),
-						("memo", memo),
-						("extensions", Set([])),
-					]
-				)
-			)
+# class Send_message(GrapheneObject):
+# 	def __init__(self, *args, **kwargs):
+# 		# Allow for overwrite of prefix
+# 		if isArgsThisClass(self, args):
+# 			self.data = args[0].data
+# 		else:
+# 			if len(args) == 1 and len(kwargs) == 0:
+# 				kwargs = args[0]
+# 			prefix = kwargs.get("prefix", default_prefix)
+# 			if "memo" in kwargs and kwargs["memo"]:
+# 				if isinstance(kwargs["memo"], dict):
+# 					kwargs["memo"]["prefix"] = prefix
+# 					memo = Optional(Memo(**kwargs["memo"]))
+# 				else:
+# 					memo = Optional(Memo(kwargs["memo"]))
+# 			else:
+# 				memo = Optional(None)
+# 			super().__init__(
+# 				OrderedDict(
+# 					[
+# 						("fee", Asset(kwargs["fee"])),
+# 						("from", ObjectId(kwargs["from"], "account")),
+# 						("to", ObjectId(kwargs["to"], "account")),
+# 						("memo", memo)
+# 					]
+# 				)
+# 			)
 
 
 fill_classmaps()
-

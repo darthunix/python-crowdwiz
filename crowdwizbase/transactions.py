@@ -25,6 +25,6 @@ from .operations import (
 	Lottery_goods_buy_ticket,
 	Lottery_goods_send_contacts,
 	Lottery_goods_confirm_delivery,
-	Send_message,
+	# Send_message,
 )
 from .signedtransactions import Signed_Transaction
