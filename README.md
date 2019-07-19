@@ -29,18 +29,18 @@ Visit the [pycrowdwiz website](http://docs.pycrowdwiz.com/en/latest/) for in dep
 
 ### Install with pip3:
 
-    $ sudo apt-get install libffi-dev libssl-dev python-dev python3-dev python3-pip
-    $ pip3 install crowdwiz
+	$ sudo apt-get install libffi-dev libssl-dev python-dev python3-dev python3-pip
+	$ pip3 install crowdwiz
 
 ### Manual installation:
 
-    $ git clone https://github.com/crowdwiz/python-crowdwiz/
-    $ cd python-crowdwiz
-    $ python3 setup.py install --user
+	$ git clone https://github.com/crowdwiz/python-crowdwiz/
+	$ cd python-crowdwiz
+	$ python3 setup.py install --user
 
 ### Upgrade
 
-    $ pip3 install --user --upgrade crowdwiz
+	$ pip3 install --user --upgrade crowdwiz
 
 ## Contributing
 

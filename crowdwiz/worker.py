@@ -7,28 +7,28 @@ from graphenecommon.worker import Worker as GrapheneWorker, Workers as GrapheneW
 
 @BlockchainInstance.inject
 class Worker(GrapheneWorker):
-    """ Read data about a worker in the chain
+	""" Read data about a worker in the chain
 
-        :param str id: id of the worker
-        :param crowdwiz blockchain_instance: CrowdWiz() instance to use when
-            accesing a RPC
+		:param str id: id of the worker
+		:param crowdwiz blockchain_instance: CrowdWiz() instance to use when
+			accesing a RPC
 
-    """
+	"""
 
-    def define_classes(self):
-        self.account_class = Account
-        self.type_id = 14
+	def define_classes(self):
+		self.account_class = Account
+		self.type_id = 14
 
 
 @BlockchainInstance.inject
 class Workers(GrapheneWorkers):
-    """ Obtain a list of workers for an account
+	""" Obtain a list of workers for an account
 
-        :param str account_name/id: Name/id of the account (optional)
-        :param crowdwiz blockchain_instance: CrowdWiz() instance to use when
-            accesing a RPC
-    """
+		:param str account_name/id: Name/id of the account (optional)
+		:param crowdwiz blockchain_instance: CrowdWiz() instance to use when
+			accesing a RPC
+	"""
 
-    def define_classes(self):
-        self.account_class = Account
-        self.worker_class = Worker
+	def define_classes(self):
+		self.account_class = Account
+		self.worker_class = Worker

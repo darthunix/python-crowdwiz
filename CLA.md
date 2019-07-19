@@ -111,11 +111,11 @@ Contribution by all means, including, but not limited to:
 -   publish the Contribution,
 -   modify the Contribution,
 -   prepare derivative works based upon or containing the Contribution
-    and/or to combine the Contribution with other Materials,
+	and/or to combine the Contribution with other Materials,
 -   reproduce the Contribution in original or modified form,
 -   distribute, to make the Contribution available to the public,
-    display and publicly perform the Contribution in original or
-    modified form.
+	display and publicly perform the Contribution in original or
+	modified form.
 
 #### 2.2 Moral rights
 
@@ -137,11 +137,11 @@ including, but not limited to:
 -   publish the Contribution,
 -   modify the Contribution,
 -   prepare derivative works based upon or containing the Contribution
-    and/or to combine the Contribution with other Materials,
+	and/or to combine the Contribution with other Materials,
 -   reproduce the Contribution in original or modified form,
 -   distribute, to make the Contribution available to the public,
-    display and publicly perform the Contribution in original or
-    modified form.
+	display and publicly perform the Contribution in original or
+	modified form.
 
 This license back is limited to the Contribution and does not provide
 any rights to the Material.
@@ -264,21 +264,21 @@ inaccurate in any respect.
 
 ### You
 
-    ---------- --
-    Date:      
-    Name:      
-    Title:     
-    Address:   
-    ---------- --
+	---------- --
+	Date:	  
+	Name:	  
+	Title:	 
+	Address:   
+	---------- --
 
 ### Us
 
-    ---------- --
-    Date:      
-    Name:      
-    Title:     
-    Address:   
-    ---------- --
+	---------- --
+	Date:	  
+	Name:	  
+	Title:	 
+	Address:   
+	---------- --
 
 #### Recreate this Contributor License Agreement
 

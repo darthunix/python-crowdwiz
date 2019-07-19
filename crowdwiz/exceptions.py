@@ -1,53 +1,53 @@
 # -*- coding: utf-8 -*-
 from graphenestorage.exceptions import WrongMasterPasswordException
 from graphenecommon.exceptions import (
-    AccountDoesNotExistsException,
-    AssetDoesNotExistsException,
-    BlockDoesNotExistsException,
-    CommitteeMemberDoesNotExistsException,
-    InvalidAssetException,
-    InvalidMemoKeyException,
-    InvalidMessageSignature,
-    InvalidWifError,
-    KeyAlreadyInStoreException,
-    KeyNotFound,
-    MissingKeyError,
-    NoWalletException,
-    OfflineHasNoRPCException,
-    ProposalDoesNotExistException,
-    VestingBalanceDoesNotExistsException,
-    WalletExists,
-    WalletLocked,
-    WitnessDoesNotExistsException,
-    WorkerDoesNotExistsException,
-    WrongMemoKey,
-    GenesisBalanceDoesNotExistsException,
+	AccountDoesNotExistsException,
+	AssetDoesNotExistsException,
+	BlockDoesNotExistsException,
+	CommitteeMemberDoesNotExistsException,
+	InvalidAssetException,
+	InvalidMemoKeyException,
+	InvalidMessageSignature,
+	InvalidWifError,
+	KeyAlreadyInStoreException,
+	KeyNotFound,
+	MissingKeyError,
+	NoWalletException,
+	OfflineHasNoRPCException,
+	ProposalDoesNotExistException,
+	VestingBalanceDoesNotExistsException,
+	WalletExists,
+	WalletLocked,
+	WitnessDoesNotExistsException,
+	WorkerDoesNotExistsException,
+	WrongMemoKey,
+	GenesisBalanceDoesNotExistsException,
 )
 
 
 class RPCConnectionRequired(Exception):
-    """ An RPC connection is required
-    """
+	""" An RPC connection is required
+	"""
 
-    pass
+	pass
 
 
 class AccountExistsException(Exception):
-    """ The requested account already exists
-    """
+	""" The requested account already exists
+	"""
 
-    pass
+	pass
 
 
 class ObjectNotInProposalBuffer(Exception):
-    """ Object was not found in proposal
-    """
+	""" Object was not found in proposal
+	"""
 
-    pass
+	pass
 
 
 class HtlcDoesNotExistException(Exception):
-    """ HTLC object does not exist
-    """
+	""" HTLC object does not exist
+	"""
 
-    pass
+	pass

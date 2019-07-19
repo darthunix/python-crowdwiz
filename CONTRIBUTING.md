@@ -66,7 +66,7 @@ create a branch with a descriptive name.
 
 A good branch name would be (where issue #325 is the ticket you're working on):
 
-    git checkout -b 325-new-fancy-feature
+	git checkout -b 325-new-fancy-feature
 
 ### 3. Get the test suite running
 
@@ -75,11 +75,11 @@ Make sure to add a unit tests for your your code contribution in
 
 Individual unit tests can be run by:
 
-    python3 -m unittests tests/test_NEWFEATURE.py
+	python3 -m unittests tests/test_NEWFEATURE.py
 
 The entire test suite can be run in a sandbox through
 
-    tox
+	tox
 
 ### 4. Did you find a bug?
 
@@ -117,15 +117,15 @@ feedback by running it locally using [Codeclimate's CLI](https://codeclimate.com
 At this point, you should switch back to your `develop` branch and make
 sure it's up to date with python-crowdwiz's `develop` branch:
 
-    git remote add upstream git@github.com:crowdwiz/python-crowdwiz.git
-    git checkout develop
-    git pull upstream develop
+	git remote add upstream git@github.com:crowdwiz/python-crowdwiz.git
+	git checkout develop
+	git pull upstream develop
 
 Then update your feature branch from your local copy of develop, and push it!
 
-    git checkout 325-new-fancy-feature
-    git rebase develop
-    git push --set-upstream origin 325-new-fancy-feature
+	git checkout 325-new-fancy-feature
+	git rebase develop
+	git push --set-upstream origin 325-new-fancy-feature
 
 Finally, go to GitHub and make a Pull Request :D
 
@@ -144,9 +144,9 @@ has changed, and that you need to update your branch so it's easier to merge.
 To learn more about rebasing in Git, there are a lot of good git
 rebasing resources but here's the suggested workflow:
 
-    git checkout 325-new-fancy-feature
-    git pull --rebase upstream develop
-    git push --force-with-lease 325-new-fancy-feature
+	git checkout 325-new-fancy-feature
+	git pull --rebase upstream develop
+	git push --force-with-lease 325-new-fancy-feature
 
 ### 8. Merging a PR (maintainers only)
 
@@ -165,17 +165,17 @@ Any maintainer is allowed to merge a PR if all of these conditions are met.
 
 Maintainers need to do the following to push out a release:
 
-    git checkout develop
-    git fetch origin
-    git rebase origin/develop
-    # get latest tag
-    git tag -l
-    # git flow
-    git flow release start x.y.z
-    # bump version in setup.py
-    git add setup.py; git commit -m "version bump"
-    git flow release finish
+	git checkout develop
+	git fetch origin
+	git rebase origin/develop
+	# get latest tag
+	git tag -l
+	# git flow
+	git flow release start x.y.z
+	# bump version in setup.py
+	git add setup.py; git commit -m "version bump"
+	git flow release finish
 
 Bundling and pushing the release:
 
-    make release
+	make release
